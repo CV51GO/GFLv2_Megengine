@@ -75,5 +75,4 @@ class GFLv2(M.Module):
 )
 def get_Megengine_GFLv2_model():
     model_megengine = GFLv2()
-    # model_megengine.load_state_dict(megengine.load('./megengine_GFLv2.pkl'))
     return model_megengine

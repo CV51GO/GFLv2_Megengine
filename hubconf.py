@@ -1,0 +1,1 @@
+from GFLv2 import get_Megengine_GFLv2_model
