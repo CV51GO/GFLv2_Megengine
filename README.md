@@ -23,13 +23,20 @@ pip install -r requirements.txt
 运行`compare.py`时，会读取`./data`中存放的图片进行推理。`compare.py`中实现了Megengine框架和官方使用的Pytorch框架的推理，并判断两者推理结果的一致性。
 
 ## 模型加载示例
+
+在GFLv2.py中，定义了```get_Megengine_GFLv2_model```方法，该方法能够利用hub加载模型。
 ```python
 @hub.pretrained(
 "https://studio.brainpp.com/api/v1/activities/3/missions/52/files/d2ce9780-da58-46c1-a509-9ecd0cdbff0d"
 )
 def get_Megengine_GFLv2_model():
     model_megengine = GFLv2()
-    # model_megengine.load_state_dict(megengine.load('./megengine_GFLv2.pkl'))
     return model_megengine
+```
+
+在使用模型时，使用如下代码即可加载权重：
+```python
+from GFLv2 import get_Megengine_GFLv2_model
+model_megengine = get_Megengine_GFLv2_model(pretrained=True)
 ```
 
