@@ -24,19 +24,9 @@ pip install -r requirements.txt
 
 ## 模型加载示例
 
-在GFLv2.py中，定义了```get_Megengine_GFLv2_model```方法，该方法能够利用hub加载模型。
+在使用模型时，使用如下代码即可加载模型和权重：
 ```python
-@hub.pretrained(
-"https://studio.brainpp.com/api/v1/activities/3/missions/52/files/d2ce9780-da58-46c1-a509-9ecd0cdbff0d"
-)
-def get_Megengine_GFLv2_model():
-    model_megengine = GFLv2()
-    return model_megengine
-```
-
-在使用模型时，使用如下代码即可加载权重：
-```python
-from GFLv2 import get_Megengine_GFLv2_model
-model_megengine = get_Megengine_GFLv2_model(pretrained=True)
+import megengine.hub as hub
+megengine_model = hub.load('CV51GO/GFLv2_Megengine','get_Megengine_GFLv2_model',pretrained=True)
 ```
 
